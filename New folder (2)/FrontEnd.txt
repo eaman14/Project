@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Simple Card Game</title>
+<script>
+async function playGame() {
+const response = await fetch('/play');
+const data = await response.json();
+document.getElementById('player').innerText = `Player: ${data.player_card.value} of ${data.player_card.suit}`;
+document.getElementById('computer').innerText = `Computer: ${data.computer_card.value} of ${data.computer_card.suit}`;
+document.getElementById('result').innerText = data.result;
+}
+</script>
+</head>
+<body>
+<h1>Simple Card Game</h1>
+<button onclick="playGame()">Draw Cards</button>
+<p id="player"></p>
+<p id="computer"></p>
+<h2 id="result"></h2>
+</body>
+</html>
